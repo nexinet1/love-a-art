@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+
+    <title>Search</title>
+    <style>
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+          }
+          
+          h1 {
+            margin-bottom: 1rem;
+          }
+          
+          form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+          }
+          
+          input[type="text"] {
+            width: 400px;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+          }
+          
+          button {
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: 5px;
+            background-color: #560202;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+          
+          button:hover {
+            background-color: #f90707;
+          }
+          
+          img {
+            width: 64px;
+            height: 64px;
+            margin-top: 1rem;
+          }
+          h1 {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+          }
+          h1 {
+            color: red;
+          }
+          h1 {
+            font-size: 7em;
+          }
+          h1 {
+            font-size: 7em;
+            text-align: center;
+            color: #FFF;
+            text-shadow: 2px 2px #fc030f;
+          }
+          body {
+            background-color: #000608;
+          }
+          .starry-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+          }
+          
+          .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation-name: twinkling;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+          }
+          
+          .star:nth-child(1) {
+            top: 15%;
+            left: 5%;
+            animation-delay: 0s;
+          }
+          
+          .star:nth-child(2) {
+            top: 80%;
+            left: 30%;
+            animation-delay: 2s;
+          }
+          
+          .star:nth-child(3) {
+            top: 10%;
+            left: 50%;
+            animation-delay: 4s;
+          }
+          
+          .star:nth-child(4) {
+            top: 40%;
+            left: 60%;
+            animation-delay: 6s;
+          }
+          
+          .star:nth-child(5) {
+            top: 70%;
+            left: 80%;
+            animation-delay: 8s;
+          }
+          
+          .star:nth-child(6) {
+            top: 50%;
+            left: 20%;
+            animation-delay: 10s;
+          }
+          
+          .star:nth-child(7) {
+            top: 25%;
+            left: 75%;
+            animation-delay: 12s;
+          }
+          
+          .star:nth-child(8) {
+            top: 90%;
+            left: 90%;
+            animation-delay: 14s;
+          }
+          
+          .star:nth-child(9) {
+            top: 30%;
+            left: 10%;
+            animation-delay: 16s;
+          }
+          
+          .star:nth-child(10) {
+            top: 60%;
+            left: 40%;
+            animation-delay: 18s;
+          }
+          
+          @keyframes twinkling {
+            0% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0.3;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          
+          .title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #fff;
+          }
+          #stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+          
+          .star {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+          }
+          
+          
+          
+          
+          
+          
+          
+    </style>
+</head>
+<body>
+    <div class="starry-bg">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div id="stars"></div>
+
+      </div>
+    <h1>BLACKSEARCH</h1>
+    <form action="/search" method="get">
+        <input type="text" name="q">
+        <button type="submit">Search</button>
+    </form>
+    <script>
+        const stars = document.getElementById('stars');
+
+// create 100 stars
+for (let i = 0; i < 100; i++) {
+  const star = document.createElement('div');
+  star.classList.add('star');
+  stars.appendChild(star);
+
+  // set initial position
+  gsap.set(star, {
+    x: gsap.utils.random(0, window.innerWidth),
+    y: gsap.utils.random(0, window.innerHeight),
+    scale: gsap.utils.random(0.5, 2),
+  });
+
+  // animate stars
+  gsap.to(star, {
+    duration: gsap.utils.random(5, 10),
+    x: `+=${gsap.utils.random(-50, 50)}`,
+    y: `+=${gsap.utils.random(-50, 50)}`,
+    repeat: -1,
+    yoyo: true,
+    ease: 'power1.inOut',
+  });
+}
+
+    </script>
+</body>
+</html>
